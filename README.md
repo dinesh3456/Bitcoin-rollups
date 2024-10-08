@@ -83,12 +83,6 @@ BITCOIN_PRIVATE_KEY=<Your Bitcoin Testnet Private Key in WIF format>
 
 ##Deploying and Interacting with the Smart Contract
 
-**Install Foundry**:
-
-```curl -L https://foundry.paradigm.xyz | bash
-foundryup
-```
-
 **Compile the contract**:
 `forge build`
 
@@ -98,4 +92,3 @@ foundryup
 ## Conclusion
 
 This project demonstrates a basic implementation of rolling up an Ethereum smart contract state and inscribing it onto the Bitcoin testnet. While functional, it serves as a starting point for more complex and robust ordinal rollup systems.
-# Bitcoin-rollups
