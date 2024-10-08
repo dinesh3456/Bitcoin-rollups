@@ -62,7 +62,8 @@ d. Broadcasting the transaction to the Bitcoin testnet
 
 Create a .env file in the project root with the following variables:
 
-```ETHEREUM_RPC_URL=<Your Ethereum RPC URL>
+```
+ETHEREUM_RPC_URL=<Your Ethereum RPC URL>
 PRIVATE_KEY=<Your Ethereum Private Key>
 CONTRACT_ADDRESS=<Deployed Token Contract Address>
 BITCOIN_PRIVATE_KEY=<Your Bitcoin Testnet Private Key in WIF format>
