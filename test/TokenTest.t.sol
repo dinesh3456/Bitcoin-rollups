@@ -8,8 +8,8 @@ contract TokenTest is Test {
     Token public token;
     address public owner;
     address public user;
-    uint256 public constant INITIAL_SUPPLY = 1000000 * 10**18;
-    uint256 public constant CAP = 2000000 * 10**18;
+    uint256 public constant INITIAL_SUPPLY = 1000000 * 10 ** 18;
+    uint256 public constant CAP = 2000000 * 10 ** 18;
 
     function setUp() public {
         owner = address(this);
@@ -23,7 +23,7 @@ contract TokenTest is Test {
     }
 
     function testMint() public {
-        uint256 amount = 1000 * 10**18;
+        uint256 amount = 1000 * 10 ** 18;
         token.mint(user, amount);
         assertEq(token.balanceOf(user), amount);
     }
@@ -35,7 +35,7 @@ contract TokenTest is Test {
     }
 
     function testBurn() public {
-        uint256 amount = 1000 * 10**18;
+        uint256 amount = 1000 * 10 ** 18;
         token.mint(owner, amount);
         token.burn(amount);
         assertEq(token.balanceOf(owner), INITIAL_SUPPLY);
@@ -51,13 +51,13 @@ contract TokenTest is Test {
     }
 
     function testTransfer() public {
-        uint256 amount = 1000 * 10**18;
+        uint256 amount = 1000 * 10 ** 18;
         assertTrue(token.transfer(user, amount));
         assertEq(token.balanceOf(user), amount);
     }
 
     function testTransferFrom() public {
-        uint256 amount = 1000 * 10**18;
+        uint256 amount = 1000 * 10 ** 18;
         token.approve(user, amount);
         vm.prank(user);
         assertTrue(token.transferFrom(owner, user, amount));
@@ -66,19 +66,19 @@ contract TokenTest is Test {
 
     function testRollupState() public {
         bytes32 state1 = token.rollupState();
-        token.mint(user, 1000 * 10**18);
+        token.mint(user, 1000 * 10 ** 18);
         bytes32 state2 = token.rollupState();
         assertFalse(state1 == state2);
     }
 
-     function testOnlyOwnerFunctions() public {
+    function testOnlyOwnerFunctions() public {
         vm.prank(user);
         vm.expectRevert(abi.encodeWithSignature("OwnableUnauthorizedAccount(address)", user));
-        token.mint(user, 1000 * 10**18);
+        token.mint(user, 1000 * 10 ** 18);
 
         vm.prank(user);
         vm.expectRevert(abi.encodeWithSignature("OwnableUnauthorizedAccount(address)", user));
-        token.burn(1000 * 10**18);
+        token.burn(1000 * 10 ** 18);
 
         vm.prank(user);
         vm.expectRevert(abi.encodeWithSignature("OwnableUnauthorizedAccount(address)", user));
