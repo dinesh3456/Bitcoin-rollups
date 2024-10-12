@@ -37,33 +37,28 @@ This function combines key contract state variables into a single hash, which ca
 
 The rollup and inscription process is simulated using two main scripts:
 
-1. `fetchState.js`: This script interacts with the deployed ERC20 contract on the Ethereum network to fetch the current state using the `rollupState` function.
+1. fetchState.js: This script interacts with the deployed ERC20 contract on the Ethereum network to fetch the current state using the rollupState function.
 
-2. `simulateRollupAndInscribe.js`: This script takes the state fetched by `fetchState.js` and simulates the process of inscribing it onto the Bitcoin testnet using an OP_RETURN output.
+**Command to run**:
+`node script/fetchState.js` 2. simulateRollupAndInscribe.js: This script takes the state fetched by fetchState.js and simulates the process of inscribing it onto the Bitcoin testnet using an OP_RETURN output.
 
-The process involves:
-a. Reading the state from a file
-b. Creating a Bitcoin testnet transaction
-c. Adding the state data as an OP_RETURN output
-d. Broadcasting the transaction to the Bitcoin testnet
+**Command to run**:
+`node script/simulateRollupAndInscribe.js` 3. generateTestnetKey.js: This script creates a new Bitcoin testnet address and private key for testing purposes.
 
-3.`generateTestnetKey`:The generateTestnetAddress.js script creates a new Bitcoin testnet address and private key for testing purposes.
-
-**To run this script**:
+**Command to run**:
 `node script/generateTestnetAddress.js`
 
-## After generating an address, you can get testnet bitcoins from these faucets:
+## After generating an address, you can get testnet bitcoins from these faucets
 
-1. https://coinfaucet.eu/en/btc-testnet/
-2. https://testnet-faucet.mempool.co/
-3. https://bitcoinfaucet.uo1.net/
+1. <https://coinfaucet.eu/en/btc-testnet/>
+2. <https://testnet-faucet.mempool.co/>
+3. <https://bitcoinfaucet.uo1.net/>
 
 ## Environment Setup
 
 Create a .env file in the project root with the following variables:
 
-```
-ETHEREUM_RPC_URL=<Your Ethereum RPC URL>
+```ETHEREUM_RPC_URL=<Your Ethereum RPC URL>
 PRIVATE_KEY=<Your Ethereum Private Key>
 CONTRACT_ADDRESS=<Deployed Token Contract Address>
 BITCOIN_PRIVATE_KEY=<Your Bitcoin Testnet Private Key in WIF format>
@@ -81,12 +76,12 @@ BITCOIN_PRIVATE_KEY=<Your Bitcoin Testnet Private Key in WIF format>
 
 5. **Verification**: Implementing a verification process to ensure the inscribed data matches the original state would enhance the reliability of the system.
 
-##Deploying and Interacting with the Smart Contract
+## Deploying and Interacting with the Smart Contract
 
 **Compile the contract**:
 `forge build`
 
-**Deploy the contract (replace <ARGS> with your constructor arguments)**:
+**Deploy the contract (replace `<ARGS>` with your constructor arguments)**:
 `forge create src/Token.sol:Token --constructor-args <ARGS> --private-key <YOUR_PRIVATE_KEY>`
 
 ## Conclusion
