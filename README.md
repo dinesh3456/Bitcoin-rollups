@@ -38,15 +38,16 @@ This function combines key contract state variables into a single hash, which ca
 The rollup and inscription process is simulated using two main scripts:
 
 1. fetchState.js: This script interacts with the deployed ERC20 contract on the Ethereum network to fetch the current state using the rollupState function.
+   **Command to run**:
+   `node script/fetchState.js`
 
-**Command to run**:
-`node script/fetchState.js` 2. simulateRollupAndInscribe.js: This script takes the state fetched by fetchState.js and simulates the process of inscribing it onto the Bitcoin testnet using an OP_RETURN output.
+2. simulateRollupAndInscribe.js: This script takes the state fetched by fetchState.js and simulates the process of inscribing it onto the Bitcoin testnet using an OP_RETURN output.
+   **Command to run**:
+   `node script/simulateRollupAndInscribe.js`
 
-**Command to run**:
-`node script/simulateRollupAndInscribe.js` 3. generateTestnetKey.js: This script creates a new Bitcoin testnet address and private key for testing purposes.
-
-**Command to run**:
-`node script/generateTestnetAddress.js`
+3. generateTestnetKey.js: This script creates a new Bitcoin testnet address and private key for testing purposes.
+   **Command to run**:
+   `node script/generateTestnetAddress.js`
 
 ## After generating an address, you can get testnet bitcoins from these faucets
 
